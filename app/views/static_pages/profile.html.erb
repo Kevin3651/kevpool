@@ -1,0 +1,11 @@
+<h1>Profile</h1>
+<p>
+Username: <%= current_user.username %><br />
+Email:<%= current_user.email %><br />
+About Me: <%= current_user.aboutme %><br />
+Phone Number: <%= current_user.cell %><br />
+College: Grinnell College (<%= current_user.year %>)<br />
+Music: <br />
+Interests: 
+  <right><%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-large btn-primary" %></right>
+</p>

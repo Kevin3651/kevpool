@@ -1,0 +1,47 @@
+<html>
+  <head>
+          <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+  <title>KevPool</title> 
+   <br>
+   <body>
+    <script>
+      $(document).ready(function () {
+        $("#myTextField").datepicker({ dateFormat: 'yy-mm-dd' });
+      });
+       $(document).ready(function () {
+        $("#myTextField2").datepicker({ dateFormat: 'yy-mm-dd' });
+      });
+       $(document).ready(function() { 
+         GmapsAutoComplete.init();
+         GmapsAutoComplete.autoCompleteInit();
+      });
+
+
+</script>
+<%= simple_form_for(@ride) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :I_am  %>
+    <%= f.input :Starting_From, :input_html =>{:id => 'gmaps-input-address'}, :placeholder => 'Start typing a place...' %><br>
+    <%= f.input :Going_to %> </div>
+  <div class="fields">
+    <%= f.label :depart, "Depart" %>
+    <%= f.text_field :depart, :id => "myTextField" %><br><br>
+        <%= f.label :return, "Return" %>
+    <%= f.text_field :return, :id => "myTextField2" %><br>
+  </div>
+  <div class="inputs">
+    <%= f.input :Price %>
+    <%= f.input :Seats %>
+
+  </div>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

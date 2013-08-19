@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<title>KevPool</title>
+  <head>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+      <script>
+        google.load("Jquery", "1.4.2");
+        google.load("jqueryui", "1.8.2");
+      </script>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

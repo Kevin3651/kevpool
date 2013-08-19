@@ -1,0 +1,11 @@
+
+<% for request in requests %>
+  <tr>
+        <% if can? :destroy, request %>
+    <td><%= link_to 'Take back request', ride_request_path(@ride, request), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+

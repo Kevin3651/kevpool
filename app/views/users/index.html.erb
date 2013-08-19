@@ -1,0 +1,21 @@
+<h2>User index</h2>
+<table class="table table-striped table-hover " data-provides="rowlink">
+
+
+  <tbody>
+<% @users.each do |user| %>
+      <tr>
+
+           <tr>
+      <td rowspan="2" colspan="5"><%= user.username %></td></a>
+      <td><%= user.email %></td>
+              <td><%= link_to 'Show', user %></td>
+
+ </tr>
+        
+     
+      
+    <% end %>
+  </tbody>
+</table>
+

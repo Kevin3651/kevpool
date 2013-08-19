@@ -1,0 +1,13 @@
+<% div_for request do %>
+  <% unless request.id.nil? %>	
+    <div id = "request_author">
+      <%= request.user_id %>
+      <%= link_to 'Edit', edit_ride_request_path(@ride, request) %>
+      <%= link_to 'Delete', ride_request_path(@ride, request), :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <div id = "request_created_at">
+      <%= request.created_at %>
+    </div>
+
+  <% end %>
+<% end %>

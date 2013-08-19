@@ -1,0 +1,63 @@
+<html>
+  <head>
+          <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css" />
+  <title>KevPool</title> 
+   <br>
+   <body>
+    <script>
+      $(document).ready(function () {
+        $("#myTextField").datepicker({ dateFormat: 'yy-mm-dd' });
+      });
+</script>
+    <form class="navbar-search pull-left">
+    <p id="notice"><%= notice %></p>       
+<%= search_form_for @search do |f| %>
+  <div class="field">
+      
+    <%= f.text_field :Starting_From_cont, :placeholder => 'From where?'  %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+   
+    <%= f.text_field :Going_to_cont, :placeholder => 'Where to?'  %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ 
+   <%= f.text_field :depart_cont, :id => "myTextField", :placeholder => 'When?' %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+<button class="btn btn-warning">&nbsp&nbspSearch&nbsp&nbsp</button></right></div>
+<% end %>
+
+    </form>
+
+<table class="table table-striped table-hover " data-provides="rowlink">
+
+
+  <tbody>
+    <% @rides.each do |ride| %>
+      <tr>
+           <tr>
+      <a href="ride">
+      <td rowspan="2" colspan="5"><%= ride.user_email %></td></a>
+      <td><%= ride.Starting_From %> to <%= ride.Going_to %><br>Departs at <%= ride.depart %> Returns at <%= ride.return %> </td>
+      <td>$<%= ride.Price %> per seat <br> <%= ride.Seats %> seats available</td>
+              <td><%= link_to "Request Ride", ride_requests_path(ride), :method => :post %></td>
+              <td><%= link_to 'Show', ride %></td>
+    <% if can? :update, ride  %>
+        <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+        <% end %>
+<% if can? :destroy, ride  %>
+        <td><%= link_to 'Destroy', ride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ </tr>
+        <% end %>
+     
+      
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Ride', new_ride_path %>
+<%= link_to 'See All Rides', rides_path %>
+
+

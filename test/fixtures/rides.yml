@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  I_am: MyString
+  Starting_From: MyString
+  Going_to: MyString
+  string: MyString
+  depart: 2013-08-02
+  return: 2013-08-02
+  Price: MyString
+  Seats: MyString
+  Notes: MyString
+
+two:
+  I_am: MyString
+  Starting_From: MyString
+  Going_to: MyString
+  string: MyString
+  depart: 2013-08-02
+  return: 2013-08-02
+  Price: MyString
+  Seats: MyString
+  Notes: MyString
