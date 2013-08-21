@@ -7,7 +7,7 @@
      
       <tr style="background-color:#f5f5f5;">
       <td ><strong><%= @ride.Starting_From %> to <%= @ride.Going_to %></strong><br>
-        Depart <%= @ride.depart %> Return  <%= @ride.return %></td>
+        Depart <%= @ride.depart.strftime("%B %d, %Y") %> Return  <%= @ride.return.strftime("%B %d, %Y") %></td>
         <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp$ <%= @ride.Price %> per seat | <%= @ride.Seats - @ride.requests.count %> seats available </td>
 
 

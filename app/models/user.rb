@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
 has_many :rides
 has_many :requests
-has_many :seats
+has_many :profiles, :dependent => :destroy
 has_and_belongs_to_many :roles
 
 def role?(role)

@@ -1,32 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
+
 <p>
   <b>Email:</b>
   <%= @user.email %>
 </p>
 
-<p>
-  <b>College:</b>
-  Grinnell College (<%= @user.year %>)
-</p>
-<p>
-  <b>Cell:</b>
-  <%= @user.cell %>
-</p>
-<p>
-  <b>About Me:</b>
-  <%= @user.aboutme %>
-</p>
-<p>
-  <b>User:</b>
-  <%= @user.id %>
-</p>
+<li><%= link_to "Change Password", edit_user_registration_path %></li>
 
 
+<h2>Profile</h2>
+<%= render :partial =>"profile", :locals=>{:profiles=> @user.profiles} %>
+
+
+<%= simple_form_for([@user, @user.profiles.build]) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </div>
+  <div class="field">
+    <%= f.label :aboutme %><br />
+    <%= f.text_area :aboutme %>
+  </div>
+  <p><%= f.submit %></p>
+<% end %>
 
 <%= link_to 'Edit', edit_user_registration_path(@user) %> |
 <%= link_to 'Back', users_path %>

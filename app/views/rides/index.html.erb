@@ -37,7 +37,7 @@
            <tr>
       <a href="ride">
       <td rowspan="2" colspan="5"><%= ride.user_email %></td></a>
-      <td><%= ride.Starting_From %> to <%= ride.Going_to %><br>Departs at <%= ride.depart %> Returns at <%= ride.return %> </td>
+      <td><%= ride.Starting_From %> to <%= ride.Going_to %><br>Departs at <%= ride.depart.strftime("%B %d, %Y") %> Returns at <%= ride.return.strftime("%B %d, %Y") %> </td>
       <td>$<%= ride.Price %> per seat <br> <%= ride.Seats %> seats available</td>
               <td><%= link_to "Request Ride", ride_requests_path(ride), :method => :post %></td>
               <td><%= link_to 'Show', ride %></td>

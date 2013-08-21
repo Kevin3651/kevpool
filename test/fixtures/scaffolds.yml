@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  name: MyString
+  cell: MyString
+  aboutme: MyText
+  music: MyText
+  interests: MyText
+  year: MyString
+
+two:
+  user_id: 1
+  name: MyString
+  cell: MyString
+  aboutme: MyText
+  music: MyText
+  interests: MyText
+  year: MyString
